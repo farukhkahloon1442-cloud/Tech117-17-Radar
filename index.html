@@ -60,7 +60,7 @@
   <section id="circuit-diagram">
     <h2>Circuit Diagram</h2>
     <p>The ultrasonic sensor measures distance; the Arduino activates the red or green LED according to distance of whatever is approaching.</p>
-    <img src="collision-warning-system-Arduino.jpg" alt="Arduino collision warning system">
+    <img src="Radar Sensor Curcuit Diagram.png" alt="Arduino collision warning system">
   </section>
 
   <section id="environment">
@@ -90,60 +90,73 @@
       </thead>
       <tbody>
         <tr>
-          <td>Arduino Uno Rev3</td>
+          <td>Arduino Uno R3</td>
           <td>1</td>
-          <td>$27.60</td>
-          <td>$27.60</td>
-          <td><a href="https://store-usa.arduino.cc/products/arduino-uno-rev3">Arduino Store</a></td>
+          <td>$41.14</td>
+          <td>$41.14</td>
+          <td><a href="https://www.digikey.ca/en/products/detail/arduino/A000066/2784006">DigiKey</a></td>
         </tr>
         <tr>
           <td>HC-SR04 Ultrasonic Sensor</td>
           <td>1</td>
-          <td>$3.95</td>
-          <td>$3.95</td>
-          <td><a href="https://www.adafruit.com/product/3942">Adafruit</a></td>
-        </tr>
-        <tr>
-          <td>Passive Buzzer</td>
-          <td>1</td>
-          <td>$0.95</td>
-          <td>$0.95</td>
-          <td><a href="https://www.sparkfun.com/passive-buzzer-module.html">SparkFun</a></td>
-        </tr>
-        <tr>
-          <td>LEDs (Red, Yellow, Green)</td>
-          <td>3</td>
-          <td>$0.20</td>
-          <td>$0.60</td>
-          <td>Adafruit</td>
-        </tr>
-        <tr>
-          <td>220 Ω Resistors</td>
-          <td>3</td>
-          <td>$0.03</td>
-          <td>$0.09</td>
-          <td>Adafruit</td>
+          <td>$11.42</td>
+          <td>$11.42</td>
+          <td><a href="https://www.amazon.ca/HC-SR04-Ultrasonic-Sensor-Distance-Measuring/dp/B09LVF5JVT">Amazon</a></td>
         </tr>
         <tr>
           <td>Breadboard</td>
           <td>1</td>
-          <td>$4.95</td>
-          <td>$4.95</td>
-          <td><a href="https://www.adafruit.com/product/64">Adafruit</a></td>
+          <td>$12.31</td>
+          <td>$12.31</td>
+          <td><a href="https://www.digikey.ca/en/products/detail/sparkfun-electronics/12615/17828247">DigiKey</a></td>
         </tr>
         <tr>
-          <td>Jumper Wires</td>
+          <td>LEDs (Red and Green in a pack)</td>
+          <td>1</td>
+          <td>$11.99</td>
+          <td>$11.99</td>
+          <td><a href="https://www.walmart.ca/en/ip/Unique-Bargains-100pcs-5mm-Red-Green-Round-LED-Diode-Lights-Electronic-Component-Emitting-Light/6L0YSDEMZFH5">Walmart</a></td>
+        </tr>
+        <tr>
+          <td>330 Ω Resistors (Pack)</td>
+          <td>1</td>
+          <td>$9.11</td>
+          <td>$9.11</td>
+          <td><a href="https://www.amazon.ca/Projects-25EP514330R-330-Resistors-Pack/dp/B0185FC0GS?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AODFMOUHD0RRM">Amazon</a></td>
+        </tr>
+        <tr>
+          <td>Micro Servo (Motor)</td>
+          <td>2</td>
+          <td>$5.40</td>
+          <td>$10.80</td>
+          <td><a href="https://www.digikey.ca/en/products/detail/dfrobot/SER0006/7597224">DigiKey</a></td>
+        </tr>
+        <tr>
+          <td>Jumper Wires (M-to-M)</td>
           <td>1 set</td>
-          <td>$3.50</td>
-          <td>$3.50</td>
-          <td><a href="https://www.sparkfun.com/jumper-wires-standard-7-m-m-30-awg-30-pack.html">SparkFun</a>
-          </td>
+          <td>$2.91</td>
+          <td>$2.91</td>
+          <td><a href="https://www.digikey.ca/en/products/detail/adafruit-industries-llc/1956/6827089">DigiKey</a></td>
+        </tr>
+        <tr>
+          <td>Jumper Wires (M-to-F)</td>
+          <td>1 set</td>
+          <td>$2.91</td>
+          <td>$2.91</td>
+          <td><a href="https://www.digikey.ca/en/products/detail/adafruit-industries-llc/1954/6827087">DigiKey</a></td>
+        </tr>
+        <tr>
+          <td>USB Cable (A to B)</td>
+          <td>1</td>
+          <td>$3.73</td>
+          <td>$3.73</td>
+          <td><a href="https://www.digikey.ca/en/products/detail/stewart-connector/SC-2ABK001F/24770288">DigiKey</a></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="3">Estimated Total</td>
-          <td>$41.64</td>
+          <td>$106.32</td>
           <td>—</td>
         </tr>
       </tfoot>
@@ -153,7 +166,7 @@
   <section id="prototype">
     <h2>Prototype</h2>
     <p>The following image shows the assembled prototype on a breadboard.</p>
-    <img src="prototype.jpg" alt="Collision warning system prototype">
+    <img src="Prototype.jpg" alt="All Around Radar Sensor Prototype">
   </section>
 
   <section id="code">
@@ -164,78 +177,88 @@
     <pre class="line-numbers">
   <button class="copy-btn" onclick="copyCode()">Copy</button>
   <code id="arduinoCode" class="language-cpp">
-// Collision Warning System with Distance Sensor (HC-SR04)
-// Author: Ana Rodrigues
-// Oct 2, 2025
-// Object is farther than 50cm: Green LED lights up
-// Object is closer than 50 cm, but more than 10cm away: Yellow LED lights, buzzer plays 300Hz tone
-// Object is closer than 10cm: Red LED lights up, buzzer plays 500Hz tone
+// Radar System with Distance Sensor (HC-SR04)
+// Author(s): Farukh Kahloon, Oghenefega Ayigbe, Ahmad Alatia
+// Nov 26, 2025
+// Object is farther than 30cm: Green LED lights up
+// Object is closer than 30cm: Red LED lights up
+#include <Servo.h>                // Include the Servo library to control servo motors
 
-//LED pins
-const int greenLED = 2;
-const int yellowLED = 3;
-const int redLED = 4;
+const int trigPin1 = 7;           // Trigger pin for ultrasonic sensor 1
+const int echoPin1 = 8;           // Echo pin for ultrasonic sensor 1
+const int trigPin2 = 5;           // Trigger pin for ultrasonic sensor 2
+const int echoPin2 = 6;           // Echo pin for ultrasonic sensor 2
 
-// Ultrasonic sensor pins
-const int trigPin = 9;
-const int echoPin = 10;
+const int ledRedPin = 9;          // Pin for red LED
+const int ledGreenPin = 10;       // Pin for green LED
 
-// Passive buzzer pin
-const int buzzer = 11;
+long duration;                    // Variable to store time of ultrasonic pulse
+int distance1;                    // Distance measured by sensor 1
+int distance2;                    // Distance measured by sensor 2
+
+Servo myServo;                    // Create servo object for servo on pin 4
+Servo myServo1;                   // Create second servo object for servo on pin 3
 
 void setup() {
-  pinMode(greenLED, OUTPUT);
-  pinMode(yellowLED, OUTPUT);
-  pinMode(redLED, OUTPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-  Serial.begin(9600);
+    pinMode(trigPin1, OUTPUT);    // Set sensor 1 trigger pin as output
+    pinMode(echoPin1, INPUT);     // Set sensor 1 echo pin as input
+    pinMode(trigPin2, OUTPUT);    // Set sensor 2 trigger pin as output
+    pinMode(echoPin2, INPUT);     // Set sensor 2 echo pin as input
+    pinMode(ledRedPin, OUTPUT);   // Set red LED pin as output
+    pinMode(ledGreenPin, OUTPUT); // Set green LED pin as output
+
+    Serial.begin(9600);           // Start serial communication at 9600 baud
+
+    myServo.attach(4);            // Attach first servo to pin 4
+    myServo1.attach(3);           // Attach second servo to pin 3
 }
 
 void loop() {
-  // Measure distance
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+    // Sweep both servos from 15° to 165°
+    for(int i = 15; i <= 165; i++){
+        myServo.write(i);         // Move servo 1 to angle i
+        myServo1.write(i);        // Move servo 2 to angle i
+        delay(30);                // Wait 30 ms for servo movement
 
-  long duration = pulseIn(echoPin, HIGH);
-  long distance = duration * 0.034 / 2;
+        // Measure distance from sensor 1
+        distance1 = calculateDistance(trigPin1, echoPin1);
+        Serial.print(i);          // Print servo angle
+        Serial.print(" distance 1 = ");       
+        Serial.print(distance1);  // Print sensor 1 distance
+        Serial.println(".");        // Data separator
+		delay(50); //delay in between the sensors
+        // Measure distance from sensor 2
+        distance2 = calculateDistance(trigPin2, echoPin2);
+        Serial.print(i);          // Print servo angle again
+        Serial.print(" distance 2 = ");        
+        Serial.print(distance2);  // Print sensor 2 distance
+        Serial.println(".");        // Data separator
 
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
-  
-  //Error in measurement:
-  if (distance <= 0)
-    return;
+        // LED warning logic for sensor 1
+        if(distance1 < 30 || distance2 < 30){ // If sensor 1 detects object < 30 cm
+            digitalWrite(ledRedPin, HIGH);    // Turn ON red LED
+            digitalWrite(ledGreenPin, LOW);   // Turn OFF green LED
+        } else {
+            digitalWrite(ledRedPin, LOW);     // Normal condition, red OFF
+            digitalWrite(ledGreenPin, HIGH);  // Green ON
+        }
+    }
 
-  //Too close:
-  if (distance <= 10) {
-    digitalWrite(greenLED, LOW);
-    digitalWrite(yellowLED, LOW);
-    digitalWrite(redLED, HIGH);
-    tone(buzzer, 500); // Play 500Hz tone
-    return;
-  }
+    delay(1000);                     // Wait 1 second before next full sweep
+}
 
-  //Midrange:
-  if (distance <= 30) {
-    digitalWrite(greenLED, LOW);
-    digitalWrite(yellowLED, HIGH);
-    digitalWrite(redLED, LOW);
-    tone(buzzer, 300); // Play 300Hz tone
-    return;
-  }
+int calculateDistance(int t, int e){
+    digitalWrite(t, LOW);            // Ensure trigger is LOW
+    delayMicroseconds(2);            // Wait 2 microseconds
 
-  //Normal status:
-  digitalWrite(greenLED, HIGH);
-  digitalWrite(yellowLED, LOW);
-  digitalWrite(redLED, LOW);
-  noTone(buzzer); // stop buzzer
+    digitalWrite(t, HIGH);           // Send ultrasonic pulse
+    delayMicroseconds(10);           // Pulse lasts 10 microseconds
+    digitalWrite(t, LOW);            // Stop pulse
 
-  delay(100);
+    duration = pulseIn(e, HIGH);     // Measure time for echo to return
+
+    int distance = duration * 0.034 / 2;  // Convert time to distance in cm
+    return distance;                 // Return the measured distance
 }
     </code></pre>
 
@@ -253,69 +276,31 @@ void loop() {
 
   <section id="conclusion">
     <h2>Conclusion</h2>
-    <p>The system effectively demonstrates distance-based alerting using Arduino. It’s affordable, educational, and
-      sustainable through reusable components.</p>
+    <p>The system effectively demonstrates distance-based sensing using Arduino. It’s affordable, educational, and sustainable through reusable components.</p>
   </section>
 
  <section id="references">
   <h2>References</h2>
   <p>
     The following external resources and example projects demonstrate related Arduino applications 
-    using ultrasonic distance sensors, passive buzzers, and multicolour LEDs:
+    using ultrasonic distance sensors, micro servo (motor), and multicolour LEDs:
   </p>
 
   <ul>
     <li>
-      Arduino Project Hub. (n.d.). 
-      <em>Ultrasonic sensor projects.</em> 
-      Arduino Project Hub. 
-      <a href="https://projecthub.arduino.cc/projects/tags/ultrasonic-sensor" target="_blank" rel="noopener noreferrer">
-        https://projecthub.arduino.cc/projects/tags/ultrasonic-sensor
+      Research Tamilan. (2023, July 8). 
+      <em>How to make Radar using Arduino || Radar with ultrasonic sensor at home | Arduino uno</em> [Video]. YouTube.
+      <a href="https://www.youtube.com/watch?v=B4ACJH6QrfUprojects" target="_blank" rel="noopener noreferrer">
+        https://www.youtube.com/watch?v=B4ACJH6QrfUprojects
       </a>
     </li>
 
     <li>
-      Arduino Project Hub. (n.d.). 
-      <em>Buzzer projects.</em> 
-      Arduino Project Hub. 
-      <a href="https://create.arduino.cc/projecthub/projects/tags/buzzer" target="_blank" rel="noopener noreferrer">
-        https://create.arduino.cc/projecthub/projects/tags/buzzer
-      </a>
-    </li>
-
-    <li>
-      Arduino Project Hub. (n.d.). 
-      <em>LED projects.</em> 
-      Arduino Project Hub. 
-      <a href="https://projecthub.arduino.cc/projects/tags/led" target="_blank" rel="noopener noreferrer">
-        https://projecthub.arduino.cc/projects/tags/led
-      </a>
-    </li>
-
-    <li>
-      Instructables. (n.d.). 
-      <em>Distance measurement using ultrasonic sensor.</em> 
-      Instructables. 
-      <a href="https://www.instructables.com/Arduino-Distance-Measurement-Using-Ultrasonic-Senso/" target="_blank" rel="noopener noreferrer">
-        https://www.instructables.com/Arduino-Distance-Measurement-Using-Ultrasonic-Senso/
-      </a>
-    </li>
-
-    <li>
-      Circuit Basics. (n.d.). 
-      <em>How to use an ultrasonic sensor with Arduino.</em> 
-      Circuit Basics. 
-      <a href="https://www.circuitbasics.com/how-to-use-an-ultrasonic-sensor-with-arduino/" target="_blank" rel="noopener noreferrer">
-        https://www.circuitbasics.com/how-to-use-an-ultrasonic-sensor-with-arduino/
-      </a>
-    </li>
-
-    <li>
-      Last Minute Engineers. (n.d.). 
-      <em>Ultrasonic sensor tutorial.</em> 
-      Last Minute Engineers. 
-      <a href="https://lastminuteengineers.com/ultrasonic-sensor-arduino-tutorial/" target="_blank" rel="noopener noreferrer">
-        https://lastminuteengineers.com/ultrasonic-sensor-arduino-tutorial/
+      SciCraft. (2023, April 23). 
+      <em> Build Your Own DIY Radar System Using Arduino: A Step-by-
+Step Guide!</em> [Video]. YouTube.
+      <a href="https://www.youtube.com/watch?v=SvLObGL-5ZY" target="_blank" rel="noopener noreferrer">
+        https://www.youtube.com/watch?v=SvLObGL-5ZY
       </a>
     </li>
   </ul>
@@ -323,6 +308,9 @@ void loop() {
 
 
 
+</body>
+
+</html>
 </body>
 
 </html>
